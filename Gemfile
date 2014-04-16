@@ -4,6 +4,9 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 
+# https://github.com/bootstrap-ruby/rails-bootstrap-forms
+gem 'bootstrap_form'
+
 gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
