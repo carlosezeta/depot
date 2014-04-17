@@ -1,0 +1,26 @@
+<%- model_class = Product -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<% @products.each do |product| %>
+  
+  	<div class="row">
+    <h3><%= link_to product.title, product_path(product) %></h3>
+	<div class="span-2">
+<%= image_tag(product.image_url, size: "120x100", :class => 'list_image') %>
+	</div>
+	<div class="span-7"><%= truncate(strip_tags(product.description), :length => 200) %></div>
+	<div class="col-md-2"><%= number_to_currency(product.price, :locale => 'es') %></div>
+	<div class="col-md-1"><i class="fa fa-shopping-cart"></i></div>
+
+	</div>
+
+
+
+
+<% end %>
+
