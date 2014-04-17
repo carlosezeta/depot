@@ -11,5 +11,8 @@
  *= require_self
  *= require_tree .
  */
+//= require bootstrap.min
+//= require bootstrap-theme.min
 //= require rails_bootstrap_forms
 //= require font-awesome.min
+//= require shop-homepage
