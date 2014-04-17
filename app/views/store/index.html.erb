@@ -35,13 +35,13 @@
 	<div class="row">
 	<% @products.each do |product| %>
   
-        <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="col-sm-4 col-lg-4 col-md-4 entry">
             <div class="thumbnail">
                 
                 <%= image_tag(product.image_url, :class => 'list_image') %>
 
                 <div class="caption">
-                    <h4 class="pull-right"><%= number_to_currency(product.price, :locale => 'es') %></h4>
+                    <h4 class="pull-right price"><%= number_to_currency(product.price, :locale => 'es') %></h4>
                     <h4><%= link_to product.title, product_path(product) %></h4>
                     <p><%= truncate(strip_tags(product.description), :length => 200) %></p>
                 </div>
