@@ -31,14 +31,20 @@
 
     </div>
 -->
-
+    <% content_for :visitas do %>
+        <div class="pull-right visitas">
+            <% if session[:counter] > 5 %>
+                <p>Nos has visitado <%= pluralize(session[:counter], 'vez', 'veces') %></p>
+            <% end %>
+        </div>
+    <% end %>
 	<div class="row">
 	<% @products.each do |product| %>
   
         <div class="col-sm-4 col-lg-4 col-md-4 entry">
             <div class="thumbnail">
                 
-                <%= image_tag(product.image_url, :class => 'list_image') %>
+                <%= link_to image_tag(product.image_url, :class => 'list_image'), line_items_path(:product_id => product), :method => :post %>
 
                 <div class="caption">
                     <h4 class="pull-right price"><%= number_to_currency(product.price, :locale => 'es') %></h4>

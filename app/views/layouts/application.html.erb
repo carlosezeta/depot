@@ -47,7 +47,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#home">Depot</a>
+                <%= link_to 'Depot', root_path, :class => 'navbar-brand' %>
+                <!--<a class="navbar-brand" href="#home">Depot</a>-->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,7 +58,9 @@
                     <li><%= link_to "Services", "/path2"  %></li>
                     <li><%= link_to "Contact", "/path3"  %></li>
                 </ul>
+                <%= yield :visitas %>
             </div>
+            
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
