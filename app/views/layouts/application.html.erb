@@ -58,6 +58,7 @@
                     <li><%= link_to "Services", "/path2"  %></li>
                     <li><%= link_to "Contact", "/path3"  %></li>
                 </ul>
+
                 <%= yield :visitas %>
             </div>
             
@@ -85,7 +86,9 @@
 
             <div id="main" class="col-md-9">
 
-              <%= yield %>
+                <%= bootstrap_flash %>
+
+                <%= yield %>
 
             </div>
 

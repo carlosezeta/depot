@@ -1,11 +1,24 @@
-<h2>Your Pragmatic Cart</h2>
-<p id="notice"><%= notice %></p>
+	<h4>Your Cart</h4>
 
-<ul>
-	<% for item in @cart.line_items %>
-		<li><%= item.product.title %></li>
-	<% end %>
-</ul>
+		<table id="cart" class="table-cart table table-striped table-hover">
+			<tbody>
+				<% for item in @cart.line_items %>
+					<tr>
+						<td><%= item.quantity %>&times;</td>
+						<td><%= item.product.title %></td>
+						<td class="item_price"><%= number_to_currency(item.total_price, :locale => 'es') %></td>
+					</tr>
+				<% end %>
+			</tbody>
+			<tfoot>
+				<tr class="total_line">
+					<td colspan="2">Total</td>
+					<td class="total_cell"><%= number_to_currency(@cart.total_price, :locale => 'es') %></td>
+				</tr>
+			</tfoot>
+		</table>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+		<div class="col-md-2">
+			<%= button_to 'Empty cart', @cart, :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+		</div>
+			<%= link_to 'Chekout', store_url, :class => 'btn btn-primary pull-right', :notice => 'Aquí hubiéramos ido a la página de compra' %>
