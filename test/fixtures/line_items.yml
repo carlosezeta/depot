@@ -3,7 +3,14 @@
 one:
   product_id: 1
   cart_id: 1
+  price: 9.99
 
 two:
   product_id: 1
   cart_id: 1
+  price: 9.99
+
+ruby:
+  product_id: 2
+  cart_id: 1
+  price: 49.5

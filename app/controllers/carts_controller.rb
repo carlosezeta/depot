@@ -20,7 +20,7 @@ class CartsController < ApplicationController
 
       #:notice, :success, :error, :alert
       flash[:alert] = 'Invalid cart'
-      redirect_to root_path
+      redirect_to :store
     else
       respond_to do |format|
         format.html # show.html.erb
