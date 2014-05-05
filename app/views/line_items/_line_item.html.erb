@@ -1,0 +1,9 @@
+<% if line_item == @current_item %>
+<tr id="current_item">
+<% else %>
+<tr>
+<% end %>
+	<td class="vcenter"><%= line_item.product.title %></td>
+	<td class="vcenter">&times;<%= line_item.quantity %></td>
+	<td class="item_price vcenter"><%= number_to_currency(line_item.total_price, :locale => 'es') %><br /><%= button_to '-', line_item, :method => :delete, :class => 'btn btn-danger', :remote => true %></td>
+</tr>

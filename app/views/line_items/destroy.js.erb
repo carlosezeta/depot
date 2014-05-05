@@ -1,0 +1,10 @@
+<% if @cart %>
+	$('#cart').html("<%= j render @cart %>");
+<% else %>
+	$('#cart').hide('blind', 1000);
+<% end %>
+
+<% if @current_item %>
+$('#current_item').css({'background-color':'#ffffff'}).
+  animate({'background-color':'#e8e8e8'}, 1000);
+<% end %>

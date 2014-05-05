@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140421164322) do
+ActiveRecord::Schema.define(:version => 20140424203724) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -34,6 +34,20 @@ ActiveRecord::Schema.define(:version => 20140421164322) do
     t.decimal  "price",       :precision => 8, :scale => 2
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "simple_hashtag_hashtaggings", :force => true do |t|
+    t.integer "hashtag_id"
+    t.integer "hashtaggable_id"
+    t.string  "hashtaggable_type"
+  end
+
+  add_index "simple_hashtag_hashtaggings", ["hashtaggable_id", "hashtaggable_type"], :name => "index_hashtaggings_hashtaggable_id_hashtaggable_type"
+
+  create_table "simple_hashtag_hashtags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

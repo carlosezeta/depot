@@ -48,8 +48,8 @@ class LineItemsController < ApplicationController
     
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to(@line_item.cart,
-          :notice => 'Line item was successfully created.') }
+        format.html { redirect_to :store }
+        format.js   { @current_item = @line_item }
         format.json { render json: @line_item, status: :created, location: @line_item }
       else
         format.html { render action: "new" }
@@ -78,10 +78,24 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1.json
   def destroy
     @line_item = LineItem.find(params[:id])
-    @line_item.destroy
+    @cart = current_cart
+
+    if @line_item.quantity > 1
+      # esta parte no funciona bien...
+      @line_item.quantity -= 1
+      @line_item.save
+      @current_item = @line_item
+    else
+      @line_item.destroy
+    end
+
+    if @cart.total_items == 0
+      @cart.destroy
+    end
 
     respond_to do |format|
-      format.html { redirect_to current_cart, :notice => 'Item has been removed from your cart.' }
+      format.html { redirect_to store_path, :notice => 'Item has been removed from your cart.' }
+      format.js   { @current_item }
       format.json { head :no_content }
     end
   end

@@ -72,6 +72,11 @@
         <div id="columns" class="row">
 
             <div id="side" class="col-md-3">
+                <% if @cart %>
+              <%= hidden_div_if(@cart.line_items.empty?, id: 'cart', class: 'well sidebar') do %>
+                  <%= render @cart %>
+              <% end %>
+            <% end %>
               <div class="well sidebar-nav">
                 <h3>Depot Store</h3>
                 <ul class="nav nav-list">
@@ -104,8 +109,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Company 2014</a>
-                    </p>
+                    <p>Copyright &copy; Company 2014</p>
                 </div>
             </div>
         </footer>

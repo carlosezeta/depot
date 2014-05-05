@@ -2,20 +2,7 @@
 
 		<table id="cart" class="table-cart table table-striped table-hover">
 			<tbody>
-				<% for item in @cart.line_items %>
-					<tr>
-						<td class="col-md-2"><%= image_tag item.product.image_url %></td>
-						<td>
-							<h5><%= item.product.title %></h5>
-							<p><%= strip_tags item.product.description %></p>
-						</td>
-						<td class="col-md-1 vcenter">&times;<%= item.quantity %></td>
-						<td class="item_price col-md-1 vcenter"><%= number_to_currency(item.total_price, :locale => 'es') %></td>
-						<td class="vcenter">
-							<%= link_to '', item, :method => :delete, :class => 'btn btn-danger fa fa-trash-o', :confirm => 'Are you sure?' %>
-						</td>
-					</tr>
-				<% end %>
+				<%= render @cart.line_items %>
 			</tbody>
 			<tfoot>
 				<tr class="total_line">

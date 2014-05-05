@@ -1,0 +1,19 @@
+	<h4>Your Cart</h4>
+
+		<table id="cart_table" class="table-cart table">
+			<tbody>
+				<%= render(cart.line_items) %>
+			</tbody>
+			<tfoot>
+				<tr class="total_line">
+					<td colspan="2">Total</td>
+					<td class="total_cell"><%= number_to_currency(cart.total_price, :locale => 'es') %></td>
+				</tr>
+			</tfoot>
+		</table>
+
+		<div class="row total_line">
+			<div class="col-md-6"><%= button_to 'Empty cart', cart, :method => :delete, :class => 'btn btn-danger', remote: true %></div>
+			<div class="col-md-6"><%= link_to 'Chekout', store_url, :class => 'btn btn-primary pull-right', :notice => 'Aquí hubiéramos ido a la página de compra' %></div>
+		</div>
+

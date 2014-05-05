@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
 
+    # una prueba de cómo se usaría elasticsearch
+    #Product.reindex
+    #@products = Product.search "development"
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }

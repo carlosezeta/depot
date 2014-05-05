@@ -44,7 +44,7 @@
         <div class="col-sm-4 col-lg-4 col-md-4 entry">
             <div class="thumbnail">
                 
-                <%= link_to image_tag(product.image_url, :class => 'list_image'), line_items_path(:product_id => product), :method => :post %>
+                <%= link_to image_tag(product.image_url, :class => 'list_image'), line_items_path(:product_id => product), :method => :post, :remote => true %>
 
                 <div class="caption">
                     <h4 class="pull-right price"><%= number_to_currency(product.price, :locale => 'es') %></h4>
@@ -62,7 +62,7 @@
                     </p>
                 </div>
                 <div class="boton-carrito">
-                    <%= button_to 'Añadir al carro', line_items_path(:product_id => product), :class => 'btn btn-primary' %>
+                    <%= button_to 'Añadir al carro', line_items_path(:product_id => product), :class => 'btn btn-primary', :remote => true %>
                 </div>
             </div>
         </div>
